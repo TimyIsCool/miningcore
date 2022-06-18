@@ -1701,5 +1701,57 @@
         "explorerBlockLink": "https://explorer.ergoplatform.com/en/blocks/$hash$",
         "explorerTxLink": "https://explorer.ergoplatform.com/en/transactions/{0}",
         "explorerAccountLink": "https://explorer.ergoplatform.com/en/addresses/{0}"
+    },
+    "thooneum": {
+        "name": "Thooneum",
+        "canonicalName": "Thooneum",
+        "symbol": "THOON",
+        "family": "bitcoin",
+        "website": "https://raptoreum.com/",
+        "twitter": "https://twitter.com/raptoreum",
+        "telegram": "https://t.me/raptoreum",
+        "discord": "https://discord.com/invite/ySyEBbrYRy",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "ghostrider"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [ { "hash": "sha256d" } ]
+        },
+        "hasFounderFee": true,
+        "hasMasterNodes": true,
+        "shareMultiplier": 65536,
+        "explorerBlockLink": "http://rtm.timyg.org:6950/block-height/$height$",
+        "explorerTxLink": "http://rtm.timyg.org:6950/tx/{0}",
+        "explorerAccountLink": "http://rtm.timyg.org:6950/address/{0}"
+    },
+    "yerbas": {
+        "name": "Yerbas",
+        "canonicalName": "Yerbas",
+        "symbol": "YERB",
+        "family": "bitcoin",
+        "website": "https://yerbas.org/",
+        "twitter": "https://twitter.com/Yerbas_Endeavor",
+        "telegram": "https://t.me/raptoreum",
+        "discord": "https://discord.gg/XGEp2cKSKF",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "ghostrider"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [ { "hash": "sha256d" } ]
+        },
+        "hasFounderFee": true,
+        "hasMasterNodes": true,
+        "shareMultiplier": 65536,
+        "explorerBlockLink": "https://explorer.yerbas.org/block-height/$height$",
+        "explorerTxLink": "https://explorer.yerbas.org/tx/{0}",
+        "explorerAccountLink": "https://explorer.yerbas.org/address/{0}"
     }
 }
