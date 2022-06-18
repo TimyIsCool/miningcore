@@ -20,6 +20,8 @@ namespace Miningcore.Blockchain.Bitcoin;
 public class BitcoinJob
 {
     private const string SymbolRaptoreum = "RTM";
+    private const string SymbolThooneum = "Thoon";
+    private const string SymbolYerbas = "YERB";
     protected IHashAlgorithm blockHasher;
     protected IMasterClock clock;
     protected IHashAlgorithm coinbaseHasher;
@@ -570,7 +572,7 @@ public class BitcoinJob
         {
             masterNodeParameters = BlockTemplate.Extra.SafeExtensionDataAs<MasterNodeBlockTemplateExtra>();
 
-            if(coin.Symbol == SymbolRaptoreum)
+            if((coin.Symbol == SymbolRaptoreum) || (coin.Symbol == SymbolThooneum) || (coin.Symbol == SymbolYerbas))
             {
                 if(masterNodeParameters.Extra?.ContainsKey("smartnode") == true)
                 {
