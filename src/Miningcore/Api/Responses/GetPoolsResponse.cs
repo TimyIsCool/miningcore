@@ -10,6 +10,10 @@ public class ApiCoinConfig
 {
     public string Type { get; set; }
     public string Name { get; set; }
+
+    [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string CanonicalName { get; set; }
+
     public string Symbol { get; set; }
 
     [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -30,8 +34,6 @@ public class ApiCoinConfig
     [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public string Telegram { get; set; }
 
-    [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public string CanonicalName { get; set; }
 }
 
 public class ApiPoolPaymentProcessingConfig
