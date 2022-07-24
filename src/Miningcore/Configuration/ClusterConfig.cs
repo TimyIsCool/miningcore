@@ -58,6 +58,13 @@ public abstract partial class CoinTemplate
     [JsonProperty(Order = -9)]
     public string Website { get; set; }
 
+        /// <summary>
+    /// Market
+    /// </summary>
+    [JsonProperty(Order = -9)]
+    public string Market { get; set; }
+
+
     /// <summary>
     /// Family
     /// </summary>
