@@ -32,7 +32,7 @@
 
     "actinium": {
         "name": "Actinium",
-        "canonicalName": "5G Cash",
+        "canonicalName": "Actinium",
         "symbol": "ACM",
         "family": "bitcoin",        
         "website": "https://actinium.org/",
@@ -58,7 +58,7 @@
 
     "alpscoin": {
         "name": "Alpenstars",
-        "canonicalName": "5G Cash",
+        "canonicalName": "Alpenstars",
         "symbol": "ALPS",
         "family": "bitcoin",        
         "website": "https://axerunners.com/",
