@@ -473,6 +473,34 @@
         "explorerAccountLink": "https://explorer.bitflate.org/address/{0}"
     },
 
+    "bitoreum": {
+        "name": "Bitoreum",
+        "canonicalName": "Bitoreum",
+        "symbol": "BTRM",
+        "family": "bitcoin",
+        "website": "https://bitoreum.org/",
+        "market": "https://www.coingecko.com/en/coins/bitoreum",
+        "twitter": "https://twitter.com/bitoreum",
+        "telegram": "",
+        "discord": "https://discord.com/invite/E3E9Ef3kZT",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "ghostrider"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [ { "hash": "sha256d" } ]
+        },
+        "hasFounderFee": true,
+        "hasMasterNodes": true,
+        "shareMultiplier": 65536,
+        "explorerBlockLink": "https://explorer.bitoreum.org/block/$height$",
+        "explorerTxLink": "https://explorer.bitoreum.org/tx/{0}",
+        "explorerAccountLink": "https://explorer.bitoreum.org/address/{0}"
+    },
+    
     "bolivarcoin": {
         "name": "Bolivarcoin",
         "canonicalName": "Bolivarcoin",
@@ -555,7 +583,7 @@
     },
     
     "butkoin-scrypt": {
-        "name": "ButKoin",
+        "name": "ButKoin Scrypt",
         "canonicalName": "ButKoin",
         "symbol": "BUTK",
         "family": "bitcoin",
@@ -594,7 +622,7 @@
     },
 
     "butkoin-yespower": {
-        "name": "ButKoin",
+        "name": "ButKoin Yespower",
         "canonicalName": "ButKoin",
         "symbol": "BUTK",
         "family": "bitcoin",
@@ -623,7 +651,7 @@
     },
 
     "butkoin-ghostrider": {
-        "name": "ButKoin",
+        "name": "ButKoin Ghostrider",
         "canonicalName": "ButKoin",
         "symbol": "BUTK",
         "family": "bitcoin",
