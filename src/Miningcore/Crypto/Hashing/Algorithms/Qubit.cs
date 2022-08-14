@@ -1,20 +1,21 @@
-using Miningcore.Contracts;
-using Miningcore.Native;
+using System;
+using Cybercore.Contracts;
+using Cybercore.Native;
 
-namespace Miningcore.Crypto.Hashing.Algorithms;
-
-[Identifier("qubit")]
-public unsafe class Qubit : IHashAlgorithm
+namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+    public unsafe class Qubit : IHashAlgorithm
     {
-        Contract.Requires<ArgumentException>(result.Length >= 32);
-
-        fixed (byte* input = data)
+        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
         {
-            fixed (byte* output = result)
+            Contract.Requires<ArgumentException>(result.Length >= 32, $"{nameof(result)} must be greater or equal 32 bytes");
+
+            fixed (byte* input = data)
             {
-                Multihash.qubit(input, output, (uint) data.Length);
+                fixed (byte* output = result)
+                {
+                    LibMultihash.qubit(input, output, (uint)data.Length);
+                }
             }
         }
     }

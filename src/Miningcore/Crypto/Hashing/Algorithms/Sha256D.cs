@@ -1,22 +1,23 @@
+using System;
 using System.Security.Cryptography;
-using Miningcore.Contracts;
+using Cybercore.Contracts;
 
-namespace Miningcore.Crypto.Hashing.Algorithms;
-
-/// <summary>
-/// Sha-256 double round
-/// </summary>
-[Identifier("sha256d")]
-public class Sha256D : IHashAlgorithm
+namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+    /// <summary>
+    /// Sha-256 double round
+    /// </summary>
+    public class Sha256D : IHashAlgorithm
     {
-        Contract.Requires<ArgumentException>(result.Length >= 32);
-
-        using(var hasher = SHA256.Create())
+        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
         {
-            hasher.TryComputeHash(data, result, out _);
-            hasher.TryComputeHash(result, result, out _);
+            Contract.Requires<ArgumentException>(result.Length >= 32, $"{nameof(result)} must be greater or equal 32 bytes");
+
+            using (var hasher = SHA256.Create())
+            {
+                hasher.TryComputeHash(data, result, out _);
+                hasher.TryComputeHash(result, result, out _);
+            }
         }
     }
 }

@@ -1,50 +1,50 @@
+using System;
 using System.Diagnostics;
-using Miningcore.Configuration;
-using Miningcore.Contracts;
-using Miningcore.Extensions;
-using Miningcore.Messaging;
-using Miningcore.Native;
-using Miningcore.Notifications.Messages;
+using Cybercore.Configuration;
+using Cybercore.Contracts;
+using Cybercore.Extensions;
+using Cybercore.Messaging;
+using Cybercore.Native;
+using Cybercore.Notifications.Messages;
 using NLog;
 
-namespace Miningcore.Crypto.Hashing.Algorithms;
-
-[Identifier("verthash")]
-public unsafe class Verthash :
-    IHashAlgorithm,
-    IHashAlgorithmInit
+namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    internal static IMessageBus messageBus;
-
-    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+    public unsafe class Verthash :
+        IHashAlgorithm,
+        IHashAlgorithmInit
     {
-        Contract.Requires<ArgumentException>(data.Length == 80);
-        Contract.Requires<ArgumentException>(result.Length >= 32);
+        internal static IMessageBus messageBus;
 
-        var sw = Stopwatch.StartNew();
-
-        fixed (byte* input = data)
+        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
         {
-            fixed (byte* output = result)
+            Contract.Requires<ArgumentException>(data.Length == 80, $"{nameof(data)} must be exactly 80 bytes long");
+            Contract.Requires<ArgumentException>(result.Length >= 32, $"{nameof(result)} must be greater or equal 32 bytes");
+
+            var sw = Stopwatch.StartNew();
+
+            fixed (byte* input = data)
             {
-                Multihash.verthash(input, output, data.Length);
+                fixed (byte* output = result)
+                {
+                    LibMultihash.verthash(input, output, data.Length);
+                }
             }
+            messageBus?.SendTelemetry("Verthash", TelemetryCategory.Hash, sw.Elapsed);
         }
 
-        messageBus?.SendTelemetry("Verthash", TelemetryCategory.Hash, sw.Elapsed);
-    }
+        private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
 
-    private static readonly ILogger logger = LogManager.GetCurrentClassLogger();
+        public bool DigestInit(PoolConfig poolConfig)
+        {
+            var vertHashDataFile = "verthash.dat";
 
-    public bool DigestInit(PoolConfig poolConfig)
-    {
-        var vertHashDataFile = "verthash.dat";
+            if (poolConfig.Extra.TryGetValue("vertHashDataFile", out var result))
+                vertHashDataFile = ((string)result).Trim();
 
-        if(poolConfig.Extra.TryGetValue("vertHashDataFile", out var result))
-            vertHashDataFile = ((string) result).Trim();
+            logger.Info(() => $"Loading verthash data file {vertHashDataFile}");
 
-        logger.Info(()=> $"Loading verthash data file {vertHashDataFile}");
-
-        return Multihash.verthash_init(vertHashDataFile, false) == 0;
+            return LibMultihash.verthash_init(vertHashDataFile, false) == 0;
+        }
     }
 }

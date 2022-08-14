@@ -1,21 +1,22 @@
-using Miningcore.Contracts;
-using Miningcore.Native;
+using System;
+using Cybercore.Contracts;
+using Cybercore.Native;
 
-namespace Miningcore.Crypto.Hashing.Algorithms;
-
-[Identifier("lyra2-rev3")]
-public unsafe class Lyra2Rev3 : IHashAlgorithm
+namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+    public unsafe class Lyra2Rev3 : IHashAlgorithm
     {
-        Contract.Requires<ArgumentException>(data.Length == 80);
-        Contract.Requires<ArgumentException>(result.Length >= 32);
-
-        fixed (byte* input = data)
+        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
         {
-            fixed (byte* output = result)
+            Contract.Requires<ArgumentException>(data.Length == 80, $"{nameof(data)} must be exactly 80 bytes long");
+            Contract.Requires<ArgumentException>(result.Length >= 32, $"{nameof(result)} must be greater or equal 32 bytes");
+
+            fixed (byte* input = data)
             {
-                Multihash.lyra2rev3(input, output);
+                fixed (byte* output = result)
+                {
+                    LibLyrahash.lyra2rev3(input, output, (uint)data.Length);
+                }
             }
         }
     }

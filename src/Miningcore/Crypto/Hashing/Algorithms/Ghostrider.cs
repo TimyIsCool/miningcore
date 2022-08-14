@@ -1,13 +1,22 @@
-using Miningcore.Native;
-using static Miningcore.Native.Cryptonight.Algorithm;
+using System;
+using Cybercore.Contracts;
+using Cybercore.Native;
 
-namespace Miningcore.Crypto.Hashing.Algorithms;
-
-[Identifier("ghostrider")]
-public class Ghostrider : IHashAlgorithm
+namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+    public unsafe class Ghostrider : IHashAlgorithm
     {
-        Cryptonight.CryptonightHash(data, result, GHOSTRIDER_RTM, 0);
+        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+        {
+            Contract.Requires<ArgumentException>(result.Length >= 32, $"{nameof(result)} must be greater or equal 32 bytes");
+
+            fixed (byte* input = data)
+            {
+                fixed (byte* output = result)
+                {
+                    LibGrhash.ghostrider(input, output, (uint)data.Length);
+                }
+            }
+        }
     }
 }

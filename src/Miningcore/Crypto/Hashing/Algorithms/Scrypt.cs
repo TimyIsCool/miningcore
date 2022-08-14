@@ -1,29 +1,30 @@
-using Miningcore.Contracts;
-using Miningcore.Native;
+using System;
+using Cybercore.Contracts;
+using Cybercore.Native;
 
-namespace Miningcore.Crypto.Hashing.Algorithms;
-
-[Identifier("scrypt")]
-public unsafe class Scrypt : IHashAlgorithm
+namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    public Scrypt(uint n, uint r)
+    public unsafe class Scrypt : IHashAlgorithm
     {
-        this.n = n;
-        this.r = r;
-    }
-
-    private readonly uint n;
-    private readonly uint r;
-
-    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
-    {
-        Contract.Requires<ArgumentException>(result.Length >= 32);
-
-        fixed (byte* input = data)
+        public Scrypt(uint n, uint r)
         {
-            fixed (byte* output = result)
+            this.n = n;
+            this.r = r;
+        }
+
+        private readonly uint n;
+        private readonly uint r;
+
+        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+        {
+            Contract.Requires<ArgumentException>(result.Length >= 32, $"{nameof(result)} must be greater or equal 32 bytes");
+
+            fixed (byte* input = data)
             {
-                Multihash.scrypt(input, output, n, r, (uint) data.Length);
+                fixed (byte* output = result)
+                {
+                    LibMultihash.scrypt(input, output, n, r, (uint)data.Length);
+                }
             }
         }
     }
