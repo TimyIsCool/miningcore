@@ -1,21 +1,21 @@
-using System;
-using Cybercore.Contracts;
-using Cybercore.Native;
+using Miningcore.Contracts;
+using Miningcore.Native;
 
-namespace Cybercore.Crypto.Hashing.Algorithms
+namespace Miningcore.Crypto.Hashing.Algorithms;
+
+[Identifier("x16r-v2")]
+public unsafe class X16RV2 : IHashAlgorithm
 {
-    public unsafe class X16RV2 : IHashAlgorithm
+    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
     {
-        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
-        {
-            Contract.Requires<ArgumentException>(result.Length >= 32, $"{nameof(result)} must be greater or equal 32 bytes");
+        Contract.Requires<ArgumentException>(data.Length == 80);
+        Contract.Requires<ArgumentException>(result.Length >= 32);
 
-            fixed (byte* input = data)
+        fixed (byte* input = data)
+        {
+            fixed (byte* output = result)
             {
-                fixed (byte* output = result)
-                {
-                    LibMultihash.x16rv2(input, output, (uint)data.Length);
-                }
+                Multihash.x16rv2(input, output, (uint) data.Length);
             }
         }
     }
