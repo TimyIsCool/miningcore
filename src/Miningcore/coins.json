@@ -577,9 +577,9 @@
         "blockTemplateRpcExtraParams": [ "sha256d" ],
         "hasFounderFee": true,
         "hasMasterNodes": true,
-        "explorerBlockLink": "https://blocks.butcoin.tech/block/$hash$",
-        "explorerTxLink": "https://blocks.butcoin.tech/tx/{0}",
-        "explorerAccountLink": "https://blocks.butcoin.tech/address/{0}"
+        "explorerBlockLink": "https://explorer.butkoin.com/block-height/$height$",
+        "explorerTxLink": "https://explorer.butkoin.com/tx/{0}",
+        "explorerAccountLink": "https://explorer.butkoin.com/address/{0}"
     },
     
     "butkoin-scrypt": {
@@ -616,9 +616,9 @@
         "shareMultiplier": 65536,
         "hasFounderFee": true,
         "hasMasterNodes": true,
-        "explorerBlockLink": "https://blocks.butcoin.tech/block/$hash$",
-        "explorerTxLink": "https://blocks.butcoin.tech/tx/{0}",
-        "explorerAccountLink": "https://blocks.butcoin.tech/address/{0}"
+        "explorerBlockLink": "https://explorer.butkoin.com/block-height/$height$",
+        "explorerTxLink": "https://explorer.butkoin.com/tx/{0}",
+        "explorerAccountLink": "https://explorer.butkoin.com/address/{0}"
     },
 
     "butkoin-yespower": {
@@ -645,9 +645,9 @@
         "shareMultiplier": 65536,
         "hasFounderFee": true,
         "hasMasterNodes": true,
-        "explorerBlockLink": "https://blocks.butcoin.tech/block/$hash$",
-        "explorerTxLink": "https://blocks.butcoin.tech/tx/{0}",
-        "explorerAccountLink": "https://blocks.butcoin.tech/address/{0}"
+        "explorerBlockLink": "https://explorer.butkoin.com/block-height/$height$",
+        "explorerTxLink": "https://explorer.butkoin.com/tx/{0}",
+        "explorerAccountLink": "https://explorer.butkoin.com/address/{0}"
     },
 
     "butkoin-ghostrider": {
@@ -674,9 +674,9 @@
         "shareMultiplier": 65536,
         "hasFounderFee": true,
         "hasMasterNodes": true,
-        "explorerBlockLink": "https://blocks.butcoin.tech/block/$hash$",
-        "explorerTxLink": "https://blocks.butcoin.tech/tx/{0}",
-        "explorerAccountLink": "https://blocks.butcoin.tech/address/{0}"
+        "explorerBlockLink": "https://explorer.butkoin.com/block-height/$height$",
+        "explorerTxLink": "https://explorer.butkoin.com/tx/{0}",
+        "explorerAccountLink": "https://explorer.butkoin.com/address/{0}"
     },
 
     
@@ -1369,9 +1369,9 @@
         "canonicalName": "GlobalBoost",
         "symbol": "BSTY",
         "family": "bitcoin",
-        "website": "",
-        "market": "",
-        "twitter": "",
+        "website": "http://globalboost-y.com/",
+        "market": "https://coinmarketcap.com/currencies/globalboost-y",
+        "twitter": "https://twitter.com/GlobalBoost",
         "telegram": "",
         "discord": "",
         "coinbaseHasher": {
@@ -1652,29 +1652,30 @@
 
     "litecoin-cash": {
         "name": "Litecoin Cash",
-        "canonicalName": "Litecoin-Cash",
-        "symbol": "LCC",
+        "canonicalName": "Litecoin Cash",
+        "symbol": "lcc",
         "family": "bitcoin",
-        "website": "",
-        "market": "",
-        "twitter": "",
+        "website": "https://litecoinca.sh",
+        "market": "https://coinmarketcap.com/currencies/litecoin-cash",
+        "twitter": "https://twitter.com/litecoincash",
         "telegram": "",
-        "discord": "",
-        "coinbaseHasher": {
+        "discord": "https://discordapp.com/invite/F2nZXnW",
+         "coinbaseHasher": {
             "hash": "sha256d"
         },
         "headerHasher": {
-            "hash": "minotaur"
+            "hash": "minotaurx"
         },
         "blockHasher": {
             "hash": "reverse",
             "args": [ { "hash": "sha256d" } ]
         },
-        "shareMultiplier": 4096,
+        "shareMultiplier": 1048576,
         "explorerBlockLink": "https://chainz.cryptoid.info/lcc/block.dws?$height$.htm",
         "explorerTxLink": "https://chainz.cryptoid.info/lcc/tx.dws?{0}.htm",
         "explorerAccountLink": "https://chainz.cryptoid.info/lcc/address.dws?{0}.htm"
     },
+
 
     "litecoin-finance": {
         "name": "Litecoin Finance",
@@ -1789,30 +1790,30 @@
         "explorerAccountLink": "https://explorer.mateable.com/address/{0}"
     },
 
-    "maza": {
-        "name": "Maza",
-        "canonicalName": "Maza",
-        "symbol": "MAZA",
+    "mazacoin": {
+        "name": "MazaCoin",
+        "canonicalName": "MazaCoin",
+        "symbol": "maza",
         "family": "bitcoin",
-        "website": "",
-        "market": "",
-        "twitter": "",
+        "website": "http://www.mazacoin.org/",
+        "market": "https://coinpaprika.com/coin/maza-maza/",
+        "twitter": "https://twitter.com/MazaCoin",
         "telegram": "",
-        "discord": "",
+        "discord": "https://discord.com/invite/qzd9PnzN3v",
         "coinbaseHasher": {
             "hash": "sha256d"
         },
         "headerHasher": {
-            "hash": "sha256d"
+            "hash": "minotaurx"
         },
         "blockHasher": {
             "hash": "reverse",
             "args": [ { "hash": "sha256d" } ]
         },
-        "blockTemplateRpcExtraParams": [ "sha256d" ],
-        "explorerBlockLink": "https://mazacha.in/block/$hash$",
-        "explorerTxLink": "https://mazacha.in/tx/{0}",
-        "explorerAccountLink": "https://mazacha.in/address/{0}"
+        "shareMultiplier": 1048576,
+        "explorerBlockLink": "https://openchains.info/coin/mazacoin/block/$height$",
+        "explorerTxLink": "https://openchains.info/coin/mazacoin/tx/{0}",
+        "explorerAccountLink": "https://openchains.info/coin/mazacoin/address/{0}"
     },
 
     "mincoin": {
@@ -2329,6 +2330,7 @@
             "hash": "reverse",
             "args": [ { "hash": "sha256d" } ]
         },
+        "blockTemplateRpcExtraParams": [ "minotaur" ],
         "shareMultiplier": 4096,
         "explorerBlockLink": "https://chainz.cryptoid.info/rng/block.dws?$height$.htm",
         "explorerTxLink": "https://chainz.cryptoid.info/rng/tx.dws?{0}.htm",
@@ -2567,6 +2569,36 @@
         "explorerTxLink": "https://chainz.cryptoid.info/spk/tx.dws?{0}.htm",
         "explorerAccountLink": "https://chainz.cryptoid.info/spk/address.dws?{0}.htm"
     },
+
+    "sprintpay": {
+        "name": "Sprintpay",
+        "canonicalName": "Sprintpay",
+        "symbol": "SPRX",
+        "family": "bitcoin",
+        "website": "https://sprintpay.net/",
+        "market": "https://coinmarketcap.com/currencies/sprint-coin",
+        "twitter": "https://twitter.com/coin_sprint",
+        "telegram": "https://t.me/SprintChat",
+        "discord": "https://discord.com/invite/uaePNQz",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "yespower"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [ { "hash": "sha256d" } ]
+        },
+        "blockTemplateRpcExtraParams": [ "yespower" ],
+        "shareMultiplier": 65536,
+        "hasFounderFee": true,
+        "hasMasterNodes": true,
+        "explorerBlockLink": "http://explorer.sprintpay.net/block/$hash$",
+        "explorerTxLink": "http://explorer.sprintpay.net/tx/{0}",
+        "explorerAccountLink": "http://explorer.sprintpay.net/address/{0}"
+    },
+
 
     "stakecube": {
         "name": "StakeCube",
