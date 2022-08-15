@@ -4,7 +4,7 @@ using Miningcore.Native;
 namespace Miningcore.Crypto.Hashing.Algorithms;
 
 [Identifier("x25x")]
-public unsafe class X22X : IHashAlgorithm
+public unsafe class X25X : IHashAlgorithm
 {
     public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
     {
