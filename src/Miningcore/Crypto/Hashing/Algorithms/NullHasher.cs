@@ -1,10 +1,12 @@
-namespace Miningcore.Crypto.Hashing.Algorithms;
+using System;
 
-[Identifier("null")]
-public class Null : IHashAlgorithm
+namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+    public class Null : IHashAlgorithm
     {
-        throw new InvalidOperationException("Don't call me");
+        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+        {
+            throw new InvalidOperationException("Don't call me");
+        }
     }
 }

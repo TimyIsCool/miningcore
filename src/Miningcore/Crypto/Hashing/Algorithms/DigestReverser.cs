@@ -1,20 +1,22 @@
-namespace Miningcore.Crypto.Hashing.Algorithms;
+using System;
 
-[Identifier("reverse")]
-public class DigestReverser : IHashAlgorithm
+namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    public DigestReverser(IHashAlgorithm upstream)
+    public class DigestReverser : IHashAlgorithm
     {
-        this.upstream = upstream;
-    }
+        public DigestReverser(IHashAlgorithm upstream)
+        {
+            this.upstream = upstream;
+        }
 
-    private readonly IHashAlgorithm upstream;
+        private readonly IHashAlgorithm upstream;
 
-    public IHashAlgorithm Upstream => upstream;
+        public IHashAlgorithm Upstream => upstream;
 
-    public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
-    {
-        upstream.Digest(data, result, extra);
-        result.Reverse();
+        public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
+        {
+            upstream.Digest(data, result, extra);
+            result.Reverse();
+        }
     }
 }
