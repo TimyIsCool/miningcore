@@ -239,14 +239,89 @@ extern "C" MODULE_API void lyra2rev3_export(const char* input, char* output)
 	lyra2re3_hash(input, output);
 }
 
+extern "C" MODULE_API void x11_export(const char* input, char* output, uint32_t input_len)
+{
+	x11_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x11evo_export(const char* input, char* output, uint32_t input_len)
+{
+	x11evo_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x11k_export(const char* input, char* output, uint32_t input_len)
+{
+	x11k_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x11kvs_export(const char* input, char* output, uint32_t input_len)
+{
+	x11kvs_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x12_export(const char* input, char* output, uint32_t input_len)
+{
+	x12_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x13_export(const char* input, char* output, uint32_t input_len)
+{
+	x13_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x13_bcd_export(const char* input, char* output)
+{
+	x13_bcd_hash(input, output);
+}
+
+extern "C" MODULE_API void x14_export(const char* input, char* output, uint32_t input_len)
+{
+	x14_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x15_export(const char* input, char* output, uint32_t input_len)
+{
+	x15_hash(input, output, input_len);
+}
+
 extern "C" MODULE_API void x16r_export(const char* input, char* output, uint32_t input_len)
 {
-    x16r_hash(input, output, input_len);
+	x16r_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x16rt_export(const char* input, char* output, uint32_t input_len)
+{
+	x16rt_hash(input, output, input_len);
 }
 
 extern "C" MODULE_API void x16rv2_export(const char* input, char* output, uint32_t input_len)
 {
-    x16rv2_hash(input, output, input_len);
+	x16rv2_hash(input, output,input_len);
+}
+
+extern "C" MODULE_API void x16s_export(const char* input, char* output, uint32_t input_len)
+{
+	x16s_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x17_export(const char* input, char* output, uint32_t input_len)
+{
+	x17_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x17r_export(const char* input, char* output, uint32_t input_len)
+{
+	x17r_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x18_export(const char* input, char* output, uint32_t input_len)
+{
+	x18_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x20r_export(const char* input, char* output, uint32_t input_len)
+{
+	x20r_hash(input, output, input_len);
 }
 
 extern "C" MODULE_API void x21s_export(const char* input, char* output, uint32_t input_len)
@@ -254,9 +329,14 @@ extern "C" MODULE_API void x21s_export(const char* input, char* output, uint32_t
 	x21s_hash(input, output, input_len);
 }
 
+extern "C" MODULE_API void x22_export(const char* input, char* output, uint32_t input_len)
+{
+	x22_hash(input, output, input_len);
+}
+
 extern "C" MODULE_API void x22i_export(const char* input, char* output, uint32_t input_len)
 {
-    x22i_hash(input, output, input_len);
+	x22i_hash(input, output, input_len);
 }
 
 extern "C" MODULE_API void x25x_export(const char* input, char* output, uint32_t input_len)

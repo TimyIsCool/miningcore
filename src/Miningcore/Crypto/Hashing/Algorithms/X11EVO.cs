@@ -4,7 +4,7 @@ using Cybercore.Native;
 
 namespace Cybercore.Crypto.Hashing.Algorithms
 {
-    public unsafe class X25X : IHashAlgorithm
+    public unsafe class X11EVO : IHashAlgorithm
     {
         public void Digest(ReadOnlySpan<byte> data, Span<byte> result, params object[] extra)
         {
@@ -14,7 +14,7 @@ namespace Cybercore.Crypto.Hashing.Algorithms
             {
                 fixed (byte* output = result)
                 {
-                    LibMultihash.x25x(input, output, (uint)data.Length);
+                    LibMultihash.x11evo(input, output, (uint)data.Length);
                 }
             }
         }
