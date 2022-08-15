@@ -25,9 +25,9 @@ public static class BitcoinUtils
         return result;
     }
 
-    public static IDestination BechSegwitAddressToDestination(string address, Network expectedNetwork, string bechPrefix)
+    public static IDestination BechSegwitAddressToDestination(string address, Network expectedNetwork)
     {
-        var encoder = Encoders.Bech32(bechPrefix);
+        var encoder = expectedNetwork.GetBech32Encoder(Bech32Type.WITNESS_PUBKEY_ADDRESS, true);
         var decoded = encoder.Decode(address, out var witVersion);
         var result = new WitKeyId(decoded);
 

@@ -1,6 +1,5 @@
 using System.Collections.Concurrent;
 using System.Globalization;
-using System.Text;
 using Miningcore.Blockchain.Bitcoin.Configuration;
 using Miningcore.Blockchain.Bitcoin.DaemonResponses;
 using Miningcore.Configuration;
@@ -21,7 +20,6 @@ public class BitcoinJob
 {
     private const string SymbolRaptoreum = "RTM";
     private const string SymbolThooneum = "Thoon";
-    private const string SymbolYerbas = "YERB";
     protected IHashAlgorithm blockHasher;
     protected IMasterClock clock;
     protected IHashAlgorithm coinbaseHasher;
@@ -555,7 +553,7 @@ public class BitcoinJob
         JobId = jobId;
 
         var coinbaseString = !string.IsNullOrEmpty(cc.PaymentProcessing?.CoinbaseString) ?
-            cc.PaymentProcessing?.CoinbaseString.Trim() : "KriptoKyng Pool";
+            cc.PaymentProcessing?.CoinbaseString.Trim() : "Miningcore";
 
         scriptSigFinalBytes = new Script(Op.GetPushOp(Encoding.UTF8.GetBytes(coinbaseString))).ToBytes();
 
@@ -572,7 +570,7 @@ public class BitcoinJob
         {
             masterNodeParameters = BlockTemplate.Extra.SafeExtensionDataAs<MasterNodeBlockTemplateExtra>();
 
-            if((coin.Symbol == SymbolRaptoreum) || (coin.Symbol == SymbolThooneum) || (coin.Symbol == SymbolYerbas))
+            if((coin.Symbol == SymbolRaptoreum) || (coin.Symbol == SymbolThooneum))
             {
                 if(masterNodeParameters.Extra?.ContainsKey("smartnode") == true)
                 {
