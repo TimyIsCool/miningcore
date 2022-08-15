@@ -22,7 +22,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "scryptn.h"
 #include "neoscrypt.h"
 #include "skein.h"
-#include "x11.h"
 #include "groestl.h"
 #include "blake.h"
 #include "fugue.h"
@@ -44,10 +43,26 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "c11.h"
 #include "Lyra2RE.h"
 #include "Lyra2.h"
+#include "x11.h"
+#include "x11evo.h"
+#include "x11k.h"
+#include "x11kvs.h"
+#include "x12.h"
+#include "x13.h"
+#include "x14.h"
+#include "x15.h"
 #include "x16r.h"
-#include "x16s.h"
+#include "x16rt.h"
 #include "x16rv2.h"
+#include "x16s.h"
+#include "x17.h"
+#include "x17r.h"
+#include "x18.h"
+#include "x20r.h"
 #include "x21s.h"
+#include "x22.h"
+#include "x22i.h"
+#include "x25x.h"
 #include "sha256csm.h"
 #include "hmq17.h"
 #include "phi.h"
@@ -97,24 +112,104 @@ extern "C" MODULE_API void x11_export(const char* input, char* output, uint32_t 
 	x11_hash(input, output, input_len);
 }
 
+extern "C" MODULE_API void x11evo_export(const char* input, char* output, uint32_t input_len)
+{
+	x11evo_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x11k_export(const char* input, char* output, uint32_t input_len)
+{
+	x11k_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x11kvs_export(const char* input, char* output, uint32_t input_len)
+{
+	x11kvs_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x12_export(const char* input, char* output, uint32_t input_len)
+{
+	x12_hash(input, output, input_len);
+}
+
 extern "C" MODULE_API void x13_export(const char* input, char* output, uint32_t input_len)
 {
-    x13_hash(input, output, input_len);
+	x13_hash(input, output, input_len);
 }
 
 extern "C" MODULE_API void x13_bcd_export(const char* input, char* output)
 {
-    x13_bcd_hash(input, output);
+	x13_bcd_hash(input, output);
 }
 
-extern "C" MODULE_API void x17_export(const char* input, char* output, uint32_t input_len)
+extern "C" MODULE_API void x14_export(const char* input, char* output, uint32_t input_len)
 {
-    x17_hash(input, output, input_len);
+	x14_hash(input, output, input_len);
 }
 
 extern "C" MODULE_API void x15_export(const char* input, char* output, uint32_t input_len)
 {
 	x15_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x16r_export(const char* input, char* output, uint32_t input_len)
+{
+	x16r_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x16rt_export(const char* input, char* output, uint32_t input_len)
+{
+	x16rt_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x16rv2_export(const char* input, char* output, uint32_t input_len)
+{
+	x16rv2_hash(input, output,input_len);
+}
+
+extern "C" MODULE_API void x16s_export(const char* input, char* output, uint32_t input_len)
+{
+	x16s_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x17_export(const char* input, char* output, uint32_t input_len)
+{
+	x17_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x17r_export(const char* input, char* output, uint32_t input_len)
+{
+	x17r_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x18_export(const char* input, char* output, uint32_t input_len)
+{
+	x18_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x20r_export(const char* input, char* output, uint32_t input_len)
+{
+	x20r_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x21s_export(const char* input, char* output, uint32_t input_len)
+{
+	x21s_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x22_export(const char* input, char* output, uint32_t input_len)
+{
+	x22_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x22i_export(const char* input, char* output, uint32_t input_len)
+{
+	x22i_hash(input, output, input_len);
+}
+
+extern "C" MODULE_API void x25x_export(const char* input, char* output, uint32_t input_len)
+{
+	x25x_hash(input, output, input_len);
 }
 
 extern "C" MODULE_API void neoscrypt_export(const unsigned char* input, unsigned char* output, uint32_t profile)

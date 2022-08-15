@@ -1,8 +1,8 @@
 using System;
-using Cybercore.Contracts;
-using Cybercore.Native;
+using Miningcore.Contracts;
+using Miningcore.Native;
 
-namespace Cybercore.Crypto.Hashing.Algorithms
+namespace Miningcore.Crypto.Hashing.Algorithms
 {
     public unsafe class X15 : IHashAlgorithm
     {
